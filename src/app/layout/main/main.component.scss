@@ -1,0 +1,18 @@
+.main-content {
+    width: 100vw;
+    min-height: 100%;
+    display: flex;
+
+    .main {
+        width: 100%;
+        min-height: 100%;
+    
+        .content {
+            width: 100%;
+            height: 15000px !important;
+            background-color: #f8fafb;
+            padding: 18px 28px 82px;
+
+        }
+    }
+}

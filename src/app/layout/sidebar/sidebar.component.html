@@ -1,0 +1,20 @@
+<div class="sidebar" [ngClass]="{'collpased' : isCollapsed}">
+    <div class="layout_title" [ngClass]="{'collpased' : isCollapsed}">
+        <div class="content" [ngClass]="{'collpased' : isCollapsed}" (click)="Navigate_to_Optio()">
+            <div [ngClass]="{'collpased' : isCollapsed}" class="img"></div>
+            <p [ngClass]="{'collpased' : isCollapsed}">Optio.Ai</p>
+        </div>
+    </div>
+    <div class="icons" [routerLink]="['/dashboard']">
+        <div class="content">
+            <i class="fa-solid fa-chart-line"></i>
+            <p [ngClass]="{'collpased' : isCollapsed}">Dashboard</p>
+        </div>
+    </div>
+    <div class="icons" [routerLink]="['/table']">
+        <div class="content">
+            <i class='fa fa-table'></i>
+            <p [ngClass]="{'collpased' : isCollapsed}">Table</p>
+        </div>
+    </div>
+</div>
