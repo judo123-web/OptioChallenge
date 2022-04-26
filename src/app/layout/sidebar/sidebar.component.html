@@ -5,13 +5,13 @@
             <p [ngClass]="{'collpased' : isCollapsed}">Optio.Ai</p>
         </div>
     </div>
-    <div class="icons" [routerLink]="['/dashboard']">
+    <div class="icons" [routerLink]="['/dashboard']" [routerLinkActive]="'active'">
         <div class="content">
             <i class="fa-solid fa-chart-line"></i>
             <p [ngClass]="{'collpased' : isCollapsed}">Dashboard</p>
         </div>
     </div>
-    <div class="icons" [routerLink]="['/table']">
+    <div class="icons" [routerLink]="['/table']" [routerLinkActive]="'active'">
         <div class="content">
             <i class='fa fa-table'></i>
             <p [ngClass]="{'collpased' : isCollapsed}">Table</p>

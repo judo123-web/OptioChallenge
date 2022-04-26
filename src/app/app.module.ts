@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { DonutComponent } from './features/dashboard/donut/donut.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { HeatmapComponent } from './features/dashboard/heatmap/heatmap.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+
 
 
 @NgModule({
@@ -23,6 +26,7 @@ import { HeatmapComponent } from './features/dashboard/heatmap/heatmap.component
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatButtonModule,
     NgxEchartsModule.forRoot({
       /**
        * This will import all modules from echarts.
@@ -31,6 +35,7 @@ import { HeatmapComponent } from './features/dashboard/heatmap/heatmap.component
        */
       echarts: () => import('echarts'), // or import('./path-to-my-custom-echarts')
     }),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

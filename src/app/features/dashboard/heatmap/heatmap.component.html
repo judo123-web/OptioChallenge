@@ -1,1 +1,9 @@
-<p>heatmap works!</p>
+<div class="main">
+    <div class="buttons">
+        <button mat-raised-button color="primary" (click)="initialChartOption('Total cost volume', 'Volume')">Volume</button>
+        <button mat-raised-button color="accent" (click)="initialChartOption('Number of transactions', 'Quantity')">Quantity</button>
+
+    </div>
+    <div echarts [options]="chartOption" class="heatmap">
+    </div>
+</div>

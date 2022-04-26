@@ -1,0 +1,41 @@
+.main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    // border: 5px solid red;
+
+    .component {
+        width: 48%;
+        height: 404px;
+        background-color: white;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+}
+
+
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width : 992px) {
+    .main {
+        column-gap: 0px;
+
+        .component {
+            width: 95%;
+        }
+    }
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width : 1300px) {
+    .main {
+        column-gap: 0px;
+
+        .component {
+            width: 77%;
+        }
+    }
+}

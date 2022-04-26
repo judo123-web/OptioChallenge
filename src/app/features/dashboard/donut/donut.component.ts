@@ -39,6 +39,7 @@ export class DonutComponent implements OnInit, OnDestroy {
 
     this.chartOption = {
       title: {
+        top : 15,
         text: 'Cost categories and distribution',
         left: 'left'
       },
