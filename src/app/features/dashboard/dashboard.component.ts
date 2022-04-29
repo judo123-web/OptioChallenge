@@ -9,7 +9,12 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
 
+  show :boolean = false
+
   ngOnInit(): void {
+    setInterval(()=>{
+      this.show = !this.show
+    },5000)
   }
 
 }

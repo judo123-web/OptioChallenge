@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onWindowResize() {
-    if (window.innerWidth < 800) {
+    if (window.innerWidth < 1000) {
       this.isCollapsed = true
       this.layoutService.update(this.isCollapsed)
     } else {

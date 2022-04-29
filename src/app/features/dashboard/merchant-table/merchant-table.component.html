@@ -1,0 +1,26 @@
+<div class="main">
+    <div class="title">
+        <h3>Popular Merchants</h3>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-fixed">
+            <thead>
+                <tr>
+                    <th scope="col" class="col-4">#</th>
+                    <th scope="col" class="col-4">Dimension</th>
+                    <th scope="col" class="col-4">Volume</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr await *ngFor="let item of responseData | async; let i = index" >
+                    <th scope="row" class="col-4">{{i+1}}</th>
+                    <td class="col-4">{{item.dimension | firstLetterUperCase}}</td>
+                    <td class="col-4">{{item.volume | number : '1.2-2'}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>

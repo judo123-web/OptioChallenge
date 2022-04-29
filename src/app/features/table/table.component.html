@@ -1,1 +1,76 @@
-<p>table works!</p>
+
+
+<div class="mat-elevation-z8">
+
+
+  <div class="datapikcer">
+    <mat-form-field  appearance="standard" [style.fontSize.px]="'14.5'" class="hide">
+      <mat-label color>Enter a date range</mat-label>
+      <mat-date-range-input matInput  [min]="startDate" [max]="endDate" [formGroup]="range" [rangePicker]="picker">
+        <input matStartDate  formControlName="start" placeholder="Start date" [min]="startDate">
+        <input matEndDate formControlName="end" placeholder="End date" [max]="endDate">
+      </mat-date-range-input>
+      <mat-date-range-picker  #picker></mat-date-range-picker>
+  
+      <mat-error *ngIf="range.controls['start']?.invalid">Invalid start date</mat-error>
+      <mat-error *ngIf="range.controls['end'].hasError('matEndDateInvalid')">Invalid end date</mat-error>
+    </mat-form-field>
+    <div class="picker_togle">
+
+      <mat-datepicker-toggle  matSuffix [for]="picker"></mat-datepicker-toggle>
+    </div>
+
+  </div>
+
+
+  <div class="main">
+    <table mat-table [dataSource]="dataSource" matSort [matSortActive]="sortOptions.active" [matSortDirection]="sortOptions.direction" (matSortChange)="announceSortChange($event)">
+
+      <ng-container matColumnDef="dimension">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Dimension </th>
+        <td mat-cell *matCellDef="let element"> {{element.dimension}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.date | date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
+        <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="volume">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Volume </th>
+        <td mat-cell *matCellDef="let element"> {{element.volume}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="average">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Average </th>
+        <td mat-cell *matCellDef="let element"> {{element.average}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="differenceQuantity">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Difference quantity </th>
+        <td mat-cell *matCellDef="let element"> {{element.differenceQuantity}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="differenceVolume">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Difference volume </th>
+        <td mat-cell *matCellDef="let element"> {{element.differenceVolume}} </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <mat-paginator  style="height: 61px;" [length]="paginatorOptions.length" [pageSize]="paginatorOptions.pageSize" [pageIndex]="paginatorOptions.pageIndex" [pageSizeOptions]="[5, 10, 25, 100]"  (page)="setPageSizeOptions($event)" aria-label="Select page">
+  </mat-paginator>
+</div>
+
+
+
+
+

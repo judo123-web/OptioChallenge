@@ -38,6 +38,7 @@ export class DonutComponent implements OnInit, OnDestroy {
   initialChartOption(data: any) {
 
     this.chartOption = {
+
       title: {
         top : 15,
         text: 'Cost categories and distribution',
@@ -56,6 +57,7 @@ export class DonutComponent implements OnInit, OnDestroy {
       },
       series: [
         {
+          animationDuration: 1000,
           type: 'pie',
           selectedMode: 'single',
           selectedOffset: 10,
@@ -83,6 +85,7 @@ export class DonutComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.apiSubscription.unsubscribe()
+    this.chartOption = {}    
   }
 
 }

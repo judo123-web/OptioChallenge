@@ -14,7 +14,7 @@ export class ApiService {
   }
 
   findFacts(body: any): Observable<any> {
-    return this.http.post("https://api.next.insight.optio.ai/api/v2/analytics/transactions/facts/find", body,)
+    return this.http.post("https://api.next.insight.optio.ai/api/v2/analytics/transactions/facts/find", body)
   }
 
 }

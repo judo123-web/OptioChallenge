@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
-    width: 100%;
+    row-gap: 20px;
+    // width: 100%;
     // border: 5px solid red;
 
     .component {
@@ -11,6 +11,7 @@
         height: 404px;
         background-color: white;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        margin: 10px;
     }
 }
 
@@ -18,12 +19,23 @@
 
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (max-width: 600px){
+    .main {
+        row-gap: 28px;
+
+        .component {
+            width: 100% !important;
+            margin: 0px;
+        }
+    }
+}
 @media only screen and (min-width: 600px) and (max-width : 992px) {
     .main {
         column-gap: 0px;
 
         .component {
-            width: 95%;
+            width: 95% !important;
         }
     }
 }
@@ -35,7 +47,7 @@
         column-gap: 0px;
 
         .component {
-            width: 77%;
+            width: 77% !important;
         }
     }
 }

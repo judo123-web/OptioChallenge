@@ -11,5 +11,8 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  onDeactivate() {
+    window.scrollTo(0, 0)
+  }
 
 }

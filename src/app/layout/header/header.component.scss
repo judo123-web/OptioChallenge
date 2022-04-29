@@ -6,13 +6,13 @@
     align-items: center;
     padding: 0 30px;
     border-bottom: 1px solid #e8ecef;
-    
+
     position: sticky;
     top: 0px;
-    z-index: 1;
+    z-index: 120;
     background-color: #fcfbff;
 
-    .navbar {
+    .nav_bar {
         height: 19px;
         min-width: 162px;
         display: flex;
@@ -47,7 +47,8 @@
             font-size: 24px;
             text-transform: capitalize;
             letter-spacing: 2px;
-            transform: translateY(-3px);
+            margin-top: -9px;
+
         }
 
 

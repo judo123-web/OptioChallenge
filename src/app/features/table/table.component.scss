@@ -1,0 +1,60 @@
+
+
+.mat-elevation-z8 {
+  width: 99%;
+  background-color: #ffffff;
+  position: relative;
+
+  .datapikcer {
+    width: 258px;
+    height: 55px;
+    position: absolute;
+    bottom: 15px;
+    right: 420px;
+    display: flex;
+    justify-content: flex-end;
+
+    .picker_togle {
+      position: absolute;
+      top: 17px;
+      right: 0px;
+
+    }
+  }
+
+  .main {
+    position: relative;
+    min-height: 200px;
+    max-height: 71vh;
+    overflow: auto;
+    overflow-x: hidden;
+
+    // width: 99%;
+    table {
+      width: 100%;
+    }
+    
+    .mat-form-field {
+      font-size: 14px;
+      // width: 100%;
+    }
+    
+    td, th {
+      width: 14%;
+    }
+
+}
+
+}
+
+
+
+@media only screen and (max-width: 735px){
+  .hide {
+   visibility: hidden !important;
+ }
+}
+
+
+
+

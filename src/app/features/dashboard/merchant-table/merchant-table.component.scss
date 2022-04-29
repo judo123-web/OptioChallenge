@@ -1,0 +1,54 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .title {
+        h3 {
+            text-align: center;
+        }
+    }
+
+
+    .table-fixed tbody {
+        height: 300px;
+        overflow-y: auto;
+        width: 100%;
+        color: #1a4a85;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+            height: 8px;
+            background-color: #aaa;
+            /* or add it to the track */
+        }
+
+        /* Add a thumb */
+        &::-webkit-scrollbar-thumb {
+            background:#6391cc;
+        }
+    }
+
+    .table-fixed thead,
+    .table-fixed tbody,
+    .table-fixed tr,
+    .table-fixed td,
+    .table-fixed th {
+        display: block;
+    }
+
+    .table-fixed tbody td,
+    .table-fixed tbody th,
+    .table-fixed thead>tr>th {
+        float: left;
+        position: relative;
+
+        &::after {
+            content: '';
+            clear: both;
+            display: block;
+        }
+    }
+
+
+}

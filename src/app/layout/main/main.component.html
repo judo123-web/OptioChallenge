@@ -3,7 +3,9 @@
     <div class="main">
         <app-header></app-header>
         <div class="content">
-            <router-outlet></router-outlet>
+            <router-outlet (deactivate)="onDeactivate()"></router-outlet>
         </div>
     </div>
 </div>
+
+
