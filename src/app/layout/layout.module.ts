@@ -5,18 +5,22 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { RouterModule, Routes } from '@angular/router';
-import { TableComponent } from '../features/table/table.component';
-import { DashboardComponent } from '../features/dashboard/dashboard.component';
 
-const routes : Routes = [
+const routes: Routes = [
   {
-    path : "",
-    component : MainComponent,
-    children : [
-      { path : "dashboard", component : DashboardComponent},
-      { path : "table", component : TableComponent },
-      { path : "", redirectTo : "dashboard", pathMatch : "full"},
+    path: "",
+    component: MainComponent,
+    children: [
+      { path: "", redirectTo: "dashboard", pathMatch: "full" },
 
+      {
+        path: "dashboard",
+        loadChildren: () => import('../features/dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: "table",
+        loadChildren: () => import('../features/table/table.module').then(m => m.TableModule)
+      },
     ]
   }
 ]

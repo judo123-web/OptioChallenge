@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { EChartsOption } from 'echarts';
 import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
+import { AggregateFact } from 'src/app/shared/interfaces/aggregate-fact';
+import { AggregateFactResult } from 'src/app/shared/interfaces/aggregate-fact-result';
+import { FactDto } from 'src/app/shared/interfaces/fact-dto';
 
 @Component({
   selector: 'app-heatmap',
@@ -21,7 +24,7 @@ export class HeatmapComponent implements OnInit {
 
 
   ngOnInit(): void {
-    let body = {
+    let body : AggregateFact = {
       "dimension": "date",
       "types": [
         "spending", "withdrawal"

@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { EChartsOption } from 'echarts';
 import { map, mergeMap, Observable, of, Subscription, tap } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
+import { FindFact } from 'src/app/shared/interfaces/find-fact';
+import { FindFactResult } from 'src/app/shared/interfaces/find-fact-result';
 
 @Component({
   selector: 'app-line',
@@ -9,7 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./line.component.scss']
 })
 export class LineComponent implements OnInit, OnDestroy {
-  public deminitions: any = ['Salary', 'Income From Deposits', 'Bonus', 'Other Income', 'Dividend', 'Retirement']
+  public deminitions: Array<string> = ['Salary', 'Income From Deposits', 'Bonus', 'Other Income', 'Dividend', 'Retirement']
   public chartOption !: EChartsOption
   private apiSubscription !: Subscription
   public show: boolean = true
@@ -23,7 +25,7 @@ export class LineComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    let body = {
+    let body : FindFact = {
       "dimension": "category",
       "types": [
         "income"
@@ -70,13 +72,13 @@ export class LineComponent implements OnInit, OnDestroy {
 
   }
 
-  getAllMergedData(par: Observable<any>, body: any): any {
+  getAllMergedData(par: Observable<FindFactResult>, body: any): Observable<Array<FindFact>> {
     return par.pipe(
       mergeMap((value: any, i: number) => {
         if (value.data.entities.length > 0) {
           body.pageIndex += 1
           let apiObservable = this.apiService.findFacts(body)
-          return this.getAllMergedData(apiObservable, body).pipe(map((childvalue: any) => {
+          return this.getAllMergedData(apiObservable, body).pipe(map((childvalue: FindFact []) => {
             return [...value.data.entities, ...childvalue]
           }))
         } else {

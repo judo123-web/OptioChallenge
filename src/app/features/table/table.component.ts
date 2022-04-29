@@ -21,7 +21,7 @@ export class TableComponent implements OnInit, OnDestroy {
 
   public range !: FormGroup
 
-  public dataSource: Table[] = []
+  public dataSource: string[] = []
   public displayedColumns: string[] = ['dimension', 'date', 'quantity', 'volume', 'average', 'differenceQuantity', 'differenceVolume'];
 
   private formValueChangeSubs !: Subscription
@@ -113,7 +113,7 @@ export class TableComponent implements OnInit, OnDestroy {
 
 
     this.apiSubscription = this.apiService.findFacts(body)
-      .subscribe(response => {
+      .subscribe(response => {        
         this.paginatorOptions.length = response.data.total
         this.dataSource = response.data.entities
       })

@@ -2,6 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { EChartsOption } from 'echarts';
 import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
+import { AggregateFact } from 'src/app/shared/interfaces/aggregate-fact';
+import { AggregateFactResult } from 'src/app/shared/interfaces/aggregate-fact-result';
+import { FactDto } from 'src/app/shared/interfaces/fact-dto';
 
 @Component({
   selector: 'app-donut',
@@ -16,8 +19,8 @@ export class DonutComponent implements OnInit, OnDestroy {
   private apiSubscription !: Subscription
 
 
-  ngOnInit(): void {
-    let body = {
+  ngOnInit() {
+    let body : AggregateFact = {
       "dimension": "parent-category",
       "types": [
         "spending", "withdrawal"
@@ -35,7 +38,7 @@ export class DonutComponent implements OnInit, OnDestroy {
       })
   }
 
-  initialChartOption(data: any) {
+  initialChartOption(data: AggregateFactResult) {
 
     this.chartOption = {
 
@@ -74,8 +77,8 @@ export class DonutComponent implements OnInit, OnDestroy {
           labelLine: {
             show: false
           },
-          data: data.data.map((element: any) => {
-            return { value: element.volume.toFixed(2), name: element.dimension }
+          data: data.data.map((element: FactDto) => {
+            return { value: (Number(element.volume?.toFixed(2)) as number), name: element.dimension }
           })
         }
       ]
